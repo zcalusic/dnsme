@@ -37,7 +37,7 @@ type apiSecondary struct {
 
 type apiRecord struct {
 	Name        string   `json:"name"`
-	ID          int      `json:"id,omitemtpy"`
+	ID          int      `json:"id,omitempty"`
 	Type        string   `json:"type"`
 	Data        string   `json:"data"`
 	GtdLocation string   `json:"gtdLocation"`
