@@ -131,6 +131,7 @@ func runAddDomain(cmd *Command, args []string) (err error) {
 
 	if len(args) == 0 {
 		err = errors.New("domain not specified")
+		return
 	}
 
 	domain := &apiDomain{}
