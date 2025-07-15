@@ -348,8 +348,6 @@ func addDnsmeHeaders(r *http.Request) {
 	r.Header.Add("x-dnsme-hmac", fmt.Sprintf("%x", h.Sum(nil)))
 
 	r.Header.Add("Accept", "application/json")
-
-	return
 }
 
 /*
