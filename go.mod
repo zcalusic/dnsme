@@ -1,3 +1,3 @@
 module github.com/zcalusic/dnsme
 
-go 1.20
+go 1.24
