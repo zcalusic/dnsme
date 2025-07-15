@@ -93,7 +93,7 @@ func addDomain(domain apiDomain) (domainResponse apiDomain, err error) {
 
 	var buf bytes.Buffer
 	buf.Write(jsonBody)
-	// END TODO	
+	// END TODO
 
 	req, err := http.NewRequest("PUT", api_url+"/domains/"+domain.Name, &buf)
 	if err != nil {
@@ -178,7 +178,7 @@ func addSecondary(s apiSecondary) (secondary apiSecondary, err error) {
 
 	var buf bytes.Buffer
 	buf.Write(jsonBody)
-	// END TODO	
+	// END TODO
 
 	req, err := http.NewRequest("PUT", api_url+"/secondary/"+s.Name, &buf)
 	if err != nil {
@@ -234,8 +234,8 @@ func getDomainRecord(id, domain string) (record apiRecord, err error) {
 		return
 	}
 
-	// This is a shortcoming in the DNSME API: CNAME responses may have an 
-	// empty "data" field, but updating/adding records always require the 
+	// This is a shortcoming in the DNSME API: CNAME responses may have an
+	// empty "data" field, but updating/adding records always require the
 	// data field.
 	if record.Type == "CNAME" && record.Data == "" {
 		record.Data = domain + "."
@@ -298,7 +298,7 @@ func addDomainRecord(domain string, r apiRecord) (record apiRecord, err error) {
 
 	var buf bytes.Buffer
 	buf.Write(jsonBody)
-	// END TODO	
+	// END TODO
 
 	// whether this is an "add" or "update" depends on the value of the "ID" field
 	var method, url string
@@ -352,8 +352,8 @@ func addDnsmeHeaders(r *http.Request) {
 
 /*
  * makeRequest() performs http requests that are built by API functions.
- * It updates the global requestsRemaining based on the API response, and 
- * uses a simple retry mechanism whenever the API rate limit has been 
+ * It updates the global requestsRemaining based on the API response, and
+ * uses a simple retry mechanism whenever the API rate limit has been
  * exceeded.
  */
 func makeRequest(r *http.Request, into interface{}) (err error) {
