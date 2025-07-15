@@ -134,7 +134,7 @@ func main() {
 			}
 			//				args = args[1:]
 			//			} else {
-			cmd.Flag.Parse(args[1:])
+			_ = cmd.Flag.Parse(args[1:])
 			args = cmd.Flag.Args()
 			//			}
 			err := cmd.Run(cmd, args)

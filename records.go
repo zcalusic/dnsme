@@ -93,7 +93,7 @@ func runRecords(cmd *Command, args []string) (err error) {
 				rs = append(rs, r)
 			}
 			w := csv.NewWriter(os.Stdout)
-			w.WriteAll(rs)
+			_ = w.WriteAll(rs)
 		}
 	}
 	return
@@ -144,7 +144,7 @@ func runRecord(cmd *Command, args []string) (err error) {
 		{
 			r := []string{record.Name, strconv.Itoa(record.TTL), record.Type, record.Data, strconv.Itoa(record.ID), record.GtdLocation}
 			w := csv.NewWriter(os.Stdout)
-			w.Write(r)
+			_ = w.Write(r)
 			w.Flush()
 		}
 	}
@@ -340,7 +340,7 @@ func runAddRecord(cmd *Command, args []string) (err error) {
 		{
 			r := []string{record.Name, strconv.Itoa(record.TTL), record.Type, record.Data, strconv.Itoa(record.ID), record.GtdLocation}
 			w := csv.NewWriter(os.Stdout)
-			w.Write(r)
+			_ = w.Write(r)
 			w.Flush()
 		}
 	}
